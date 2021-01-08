@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:28:37 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/08 20:44:01 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/08 21:20:56 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ static void		pars_widht(char ***s, t_list **l_args, va_list args)
 	if ((***s) == '*')
 	{
 		(*l_args)->widht = va_arg(args, int);
+		if ((*l_args)->widht < 0)
+		{
+			(*l_args)->widht = (*l_args)->widht * (-1);
+			(*l_args)->flag = '-';
+		}
 		(*l_args)->arglen++;
 		(**s)++;
 		return ;
@@ -63,6 +68,8 @@ static void		pars_acy(char ***s, t_list **l_args, va_list args)
 		if ((***s) == '*')
 		{
 			(*l_args)->acacy = va_arg(args, int);
+			if ((*l_args)->acacy < 0)
+				(*l_args)->acacy = -1;
 			(*l_args)->arglen++;
 			(**s)++;
 			return ;
