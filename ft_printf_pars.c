@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:28:37 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/08 21:20:56 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/08 21:37:25 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,11 @@ int				pars_arg(char **s, va_list args)
 	t_list	*l_args;
 
 	(*s)++;
+	if ((**s) == '%')
+	{
+		(*s)++;
+		return (write(1, "%", 1));
+	}
 	if (!((l_args) = ft_listnew()))
 		return (1);
 	l_args->arglen++;
@@ -101,14 +106,16 @@ int				pars_arg(char **s, va_list args)
 		l_args->arg = (**s);
 	(*s)++;
 	l_args->arglen++;
-
+	
 	//	Тестовая часть
 	printf("\nflag: %c\n", (*l_args).flag);
 	printf("widht: %d\n", (*l_args).widht);
 	printf("acacy: %d\n", (*l_args).acacy);
 	printf("arg: %c\n", (*l_args).arg);
 	printf("arglen: %d\n", (*l_args).arglen);
-	// 
+	
+
+	// возврат длины результата вычисления 
 	free(l_args);
 	return (0);
 }
