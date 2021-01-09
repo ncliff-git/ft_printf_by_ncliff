@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 13:28:17 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/07 16:20:17 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/09 15:17:40 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ typedef struct		s_list
 	int				widht;
 	int				acacy;
 	char			arg;
-	int				arglen;
 }					t_list;
 
 t_list				*ft_listnew(void);
 void				ft_listadd_back(t_list **lst, t_list *new);
 int					pars_arg(char **s, va_list args);
+int					ft_printf_choice(t_list **l_args, va_list args);
+int					ft_printf_d(t_list **l_args, va_list args);
+char				*ft_itoa(int n);
+char				*ft_strjoin(char const *s1, char const *s2);
 
 #endif
