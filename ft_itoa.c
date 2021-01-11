@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:05:39 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/09 12:38:35 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/10 19:34:54 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*min_int_itoa(int n)
 	int		i;
 
 	i = 11;
-	num = malloc(i * sizeof(char) + 1);
+	num = malloc(i * sizeof(char));
 	if (num == NULL)
 		return (NULL);
 	num[12] = 0;

@@ -1,5 +1,13 @@
 SRC		=	ft_printf_list_utils.c	\
 			ft_printf_pars.c		\
+			ft_printf_d_utils.c		\
+			ft_printf_x_utils.c		\
+			ft_printf_u_utils.c		\
+			ft_printf_c_utils.c		\
+			ft_printf_s_utils.c		\
+			ft_printf_p_utils.c		\
+			ft_printf_sp_utils.c	\
+			ft_itoa.c				\
 			main.c
 
 NAME	=	libftprintf.a
