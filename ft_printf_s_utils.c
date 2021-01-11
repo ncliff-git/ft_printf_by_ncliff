@@ -6,18 +6,18 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 21:35:11 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 12:23:48 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:22:41 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_list.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 static char			*print_null(void)
 {
 	char *str;
 
-	if (!(str = malloc(7 * sizeof(char))))
+	if (!(str = (char *)malloc(7 * sizeof(char))))
 		return (NULL);
 	str[0] = '(';
 	str[1] = 'n';
@@ -36,7 +36,7 @@ static char			*ft_strdup(char *s1, int var)
 
 	if (s1 == NULL)
 		return (NULL);
-	s1dup = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	s1dup = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
 	i = 0;
 	if (s1dup == NULL)
 		return (NULL);

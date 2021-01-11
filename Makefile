@@ -1,3 +1,13 @@
+NAME	=	libftprintf.a
+
+CFLAGS	=	-Wall -Werror -Wextra
+
+HEADER	=	ft_printf.h
+
+CC		=	gcc
+
+OPTION	=	-c -I $(HEADER)
+
 SRC		=	ft_printf_list_utils.c	\
 			ft_printf_pars.c		\
 			ft_printf_d_utils.c		\
@@ -8,23 +18,17 @@ SRC		=	ft_printf_list_utils.c	\
 			ft_printf_p_utils.c		\
 			ft_printf_sp_utils.c	\
 			ft_itoa.c				\
-			main.c
-
-NAME	=	libftprintf.a
+			ft_printf.c
 
 OBJ		=	${SRC:.c=.o}
 
-HEADER	=	ft_printf_list.h
-
-FLAG	=	-Wall -Werror -Wextra
-
-OPTION	=	-c -I $(HEADER)
-
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAG) $(OPTION) $(SRC)
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
+
+%.o:	%.c $(HEADER)
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	/bin/rm -f $(OBJ)

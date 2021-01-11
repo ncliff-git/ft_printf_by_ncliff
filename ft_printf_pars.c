@@ -6,11 +6,11 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:28:37 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/10 20:47:20 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:22:35 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_list.h"
+#include "ft_printf.h"
 
 static void		pars_flag(char ***s, t_list **l_args)
 {
@@ -87,7 +87,7 @@ int				pars_arg(char **s, va_list args)
 		return (write(1, "%", 1));
 	}
 	if (!((l_args) = ft_listnew()))
-		return (1);
+		return (0);
 	pars_flag(&s, &l_args);
 	pars_widht(&s, &l_args, args);
 	pars_acy(&s, &l_args, args);

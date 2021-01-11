@@ -6,11 +6,11 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 12:35:21 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 14:36:51 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:22:31 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_list.h"
+#include "ft_printf.h"
 
 char				ft_printf_hex_l(unsigned long hex, t_list **t_arg)
 {
@@ -59,13 +59,13 @@ static char			*ft_hex_x(unsigned long hexin, t_list **t_args)
 	i = 0;
 	if (hexin == 0)
 	{
-		if (!(hex = malloc(2 * sizeof(char))))
+		if (!(hex = (char *)malloc(2 * sizeof(char))))
 			return (NULL);
 		hex[0] = '0';
 		hex[1] = 0;
 		return (hex);
 	}
-	if (!(revhex = malloc(16 * sizeof(char))))
+	if (!(revhex = (char *)malloc(16 * sizeof(char))))
 		return (NULL);
 	while (hexin > 0)
 	{

@@ -6,11 +6,11 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 12:27:12 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/10 20:53:12 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:22:20 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_list.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int	widht_d(int widht, int point, char **num, t_list **l_args)
@@ -65,7 +65,7 @@ int	acacy_d(int acacy, int point, char **num)
 	{
 		i = 0;
 		sumzero = acacy - point;
-		s1 = malloc(sumzero * sizeof(char) + 1);
+		s1 = (char *)malloc(sumzero * sizeof(char) + 1);
 		while (sumzero-- > 0)
 			s1[i++] = '0';
 		s1[i] = '\0';

@@ -6,11 +6,11 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:05:39 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/10 19:34:54 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/11 21:22:07 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_list.h"
+#include "ft_printf.h"
 
 static int	num_sum(int n)
 {
@@ -36,7 +36,7 @@ static char	*min_int_itoa(int n)
 	int		i;
 
 	i = 11;
-	num = malloc(i * sizeof(char));
+	num = (char *)malloc(i * sizeof(char));
 	if (num == NULL)
 		return (NULL);
 	num[12] = 0;
@@ -57,7 +57,7 @@ static char	*ils_int_itoa(int n)
 	int		i;
 
 	i = num_sum(n);
-	num = malloc(i * sizeof(char) + 1);
+	num = (char *)malloc(i * sizeof(char) + 1);
 	if (num == NULL)
 		return (NULL);
 	num[i] = 0;
@@ -76,7 +76,7 @@ static char	*mins_int_itoa(int n)
 	int		min;
 
 	i = num_sum(n);
-	num = malloc(i * sizeof(char) + 1);
+	num = (char *)malloc(i * sizeof(char) + 1);
 	if (num == NULL)
 		return (NULL);
 	if (n < 0)
