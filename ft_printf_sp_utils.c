@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 12:53:28 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:56:43 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 15:34:24 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int				ft_printf_sp(t_list **l_args, int point)
 	num = sum_in_char('%');
 	if (num[point] == 0)
 		point++;
-	if ((*l_args)->flag == '-')
+	if ((*l_args)->flag == '-' || (*l_args)->widht == 0)
 		return (write(1, "%", 1));
 	while (num[point] != '\0')
 		point++;
