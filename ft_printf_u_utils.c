@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:27:30 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:22:49 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 21:53:16 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int					ft_printf_u(t_list **l_args, va_list args, int point)
 	char	*num;
 	int		i;
 
-	num = malloc(11 * sizeof(char));
+	if (!(num = malloc(11 * sizeof(char))))
+		return (-1);
 	num = ft_utoa(va_arg(args, unsigned int), num);
 	while (num[point] != '\0')
 		point++;

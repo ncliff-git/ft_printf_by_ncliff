@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 12:27:12 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:22:20 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 21:49:58 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	widht_d(int widht, int point, char **num, t_list **l_args)
 
 	numcp = *num;
 	widht2 = widht;
+	if (num == NULL)
+		return (-1);
 	while (widht > point)
 	{
 		if ((*num)[0] == '-' && (*l_args)->flag == '0' && (*l_args)->acacy < 0)
@@ -44,6 +46,8 @@ int	widht_d_minus(int widht, int point, char *num)
 {
 	int widht2;
 
+	if (num == NULL)
+		return (-1);
 	widht2 = widht;
 	write(1, num, point);
 	widht -= point;
@@ -65,17 +69,19 @@ int	acacy_d(int acacy, int point, char **num)
 	{
 		i = 0;
 		sumzero = acacy - point;
-		s1 = (char *)malloc(sumzero * sizeof(char) + 1);
+		if (!(s1 = (char *)malloc(sumzero * sizeof(char) + 1)))
+			return (-1);
 		while (sumzero-- > 0)
 			s1[i++] = '0';
 		s1[i] = '\0';
-		if ((**num) == '-')
+		if ((**num) == '-' && ++acacy)
 		{
-			s1 = ft_strjoin("-", s1, 1);
+			if (!(s1 = ft_strjoin("-", s1, 1)))
+				return (-1);
 			(**num) = '0';
-			acacy += 1;
 		}
-		*num = ft_strjoin(s1, *num, 0);
+		if (!(*num = ft_strjoin(s1, *num, 0)))
+			return (-1);
 	}
 	return (acacy);
 }
@@ -85,7 +91,8 @@ int	ft_printf_d(t_list **l_args, va_list args, int point)
 	char	*num;
 	int		i;
 
-	num = ft_itoa(va_arg(args, int));
+	if (!(num = ft_itoa(va_arg(args, int))))
+		return (-1);
 	while (num[point] != '\0')
 		point++;
 	if ((*l_args)->acacy > (-1))

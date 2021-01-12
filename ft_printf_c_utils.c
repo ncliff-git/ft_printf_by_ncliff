@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 20:55:33 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:22:12 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 21:42:39 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int				ft_printf_c(t_list **l_args, va_list args, int point)
 	char	*num;
 	int		i;
 
-	num = sum_in_char(va_arg(args, int));
-	if (num[point] == 0)
-		point++;
+	if (!(num = sum_in_char(va_arg(args, int))))
+		return (-1);
+	(num[point] == 0) ? point += 1 : 0;
 	while (num[point] != '\0')
 		point++;
 	if ((*l_args)->acacy > (-1))

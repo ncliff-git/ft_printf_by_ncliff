@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 12:35:21 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:22:31 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 21:48:04 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int					ft_printf_p(t_list **l_args, va_list args, int point)
 	char	*num;
 	int		i;
 
-	num = ft_hex_x(va_arg(args, unsigned long), l_args);
-	while (num[point] != '\0')
-		point++;
+	if (!(num = ft_hex_x(va_arg(args, unsigned long), l_args)))
+		return (-1);
+	point = ft_strlen(num);
 	if ((*l_args)->acacy > (-1))
 	{
 		if ((*num) == '0' && (*l_args)->acacy == 0)

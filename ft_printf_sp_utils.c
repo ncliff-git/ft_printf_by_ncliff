@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 12:53:28 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 15:34:24 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 22:00:41 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,11 @@ static char		*sum_in_char(int a)
 	return (s1);
 }
 
-static int		widht_sp(int widht, int point, char **num, t_list **l_args)
+static void		ft_nulldell(t_list **l_args)
 {
-	int		widht2;
-	char	*numcp;
-
-	numcp = *num;
-	widht2 = widht;
-	while (widht > point)
-	{
-		if ((*l_args)->flag == '0')
-			write(1, "0", 1);
-		else
-			write(1, " ", 1);
-		widht--;
-	}
-	write(1, (*num), point);
-	free(numcp);
-	return (widht2);
+	if ((*l_args)->acacy >= 0 && (*l_args)->flag == '0')
+		(*l_args)->acacy = -1;
+	return ;
 }
 
 int				ft_printf_sp(t_list **l_args, int point)
@@ -55,15 +42,13 @@ int				ft_printf_sp(t_list **l_args, int point)
 	char	*num;
 	int		i;
 
-	num = sum_in_char('%');
+	if (!(num = sum_in_char('%')))
+		return (-1);
 	if (num[point] == 0)
 		point++;
-	if ((*l_args)->flag == '-' || (*l_args)->widht == 0)
-		return (write(1, "%", 1));
+	ft_nulldell(l_args);
 	while (num[point] != '\0')
 		point++;
-	if ((*l_args)->acacy > (-1))
-		return (widht_sp((*l_args)->widht, point, &num, l_args));
 	if ((*l_args)->widht > point && (*l_args)->flag != '-')
 		return (widht_d((*l_args)->widht, point, &num, l_args));
 	else if ((*l_args)->widht > point && (*l_args)->flag == '-')

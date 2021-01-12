@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 13:27:30 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:26:11 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/12 21:23:44 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_printf(const char *format, ...)
 	char	*scp;
 	va_list	args;
 	int		lenstr;
+	int		pars_arg_res;
 
 	if (format == NULL)
 		return (-1);
@@ -27,7 +28,9 @@ int		ft_printf(const char *format, ...)
 	{
 		if ((*scp) == '%')
 		{
-			lenstr += pars_arg(&scp, args);
+			if ((pars_arg_res = pars_arg(&scp, args)) == -1)
+				return (-1);
+			lenstr += pars_arg_res;
 			continue;
 		}
 		write(1, scp, 1);
