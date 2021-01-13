@@ -5,11 +5,12 @@
 - Файл **libftprintf.a** необходимо скомпилировать вместе с файлом вашего проекта.
 Пример подключения:
 ```C
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 int main (void)
 {
  ft_printf(" Hello world! ");
+ return (0);
 }
 ```
 To see what else you can do with Markdown (including **tables**, **images**, **numbered lists**, and more) take a look at the [Cheatsheet][1]. And then try it out by typing in this box!
