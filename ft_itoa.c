@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:05:39 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:22:07 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/25 21:31:04 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static char	*mins_int_itoa(int n)
 	return (num);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa_pr(int n)
 {
 	char *num;
 

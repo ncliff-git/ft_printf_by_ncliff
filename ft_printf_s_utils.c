@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 21:35:11 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 21:22:41 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/25 21:28:49 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char			*ft_strdup(char *s1, int var)
 
 	if (s1 == NULL)
 		return (NULL);
-	s1dup = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	s1dup = (char *)malloc((ft_strlen_pr(s1) + 1) * sizeof(char));
 	i = 0;
 	if (s1dup == NULL)
 		return (NULL);
@@ -60,8 +60,8 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	if (!dst || !src)
 		return (sizeof(0));
 	if (dstsize <= 0)
-		return (ft_strlen(src));
-	sizedst = ft_strlen(src);
+		return (ft_strlen_pr(src));
+	sizedst = ft_strlen_pr(src);
 	while (src[pntd] != '\0' && dstsize - 1 > 0)
 	{
 		dst[pntd] = src[pntd];
@@ -69,7 +69,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dstsize--;
 	}
 	dst[pntd] = '\0';
-	return (ft_strlen(src));
+	return (ft_strlen_pr(src));
 }
 
 static int			acacy_s(int acacy, int point, char **num)

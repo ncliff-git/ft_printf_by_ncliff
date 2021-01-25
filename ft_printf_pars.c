@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:28:37 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 22:04:56 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/25 21:27:39 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int				pars_arg(char **s, va_list args)
 		(*s)++;
 		return (write(1, "%", 1));
 	}
-	if (!((l_args) = ft_listnew()))
+	if (!((l_args) = ft_listnew_pr()))
 		return (-1);
 	pars_flag(&s, &l_args);
 	pars_widht(&s, &l_args, args);

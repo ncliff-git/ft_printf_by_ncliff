@@ -6,14 +6,14 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 12:27:12 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 21:49:58 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/25 21:30:25 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	widht_d(int widht, int point, char **num, t_list **l_args)
+int	widht_d(int widht, int point, char **num, t_prnt **l_args)
 {
 	int		widht2;
 	char	*numcp;
@@ -76,22 +76,22 @@ int	acacy_d(int acacy, int point, char **num)
 		s1[i] = '\0';
 		if ((**num) == '-' && ++acacy)
 		{
-			if (!(s1 = ft_strjoin("-", s1, 1)))
+			if (!(s1 = ft_strjoin_pr("-", s1, 1)))
 				return (-1);
 			(**num) = '0';
 		}
-		if (!(*num = ft_strjoin(s1, *num, 0)))
+		if (!(*num = ft_strjoin_pr(s1, *num, 0)))
 			return (-1);
 	}
 	return (acacy);
 }
 
-int	ft_printf_d(t_list **l_args, va_list args, int point)
+int	ft_printf_d(t_prnt **l_args, va_list args, int point)
 {
 	char	*num;
 	int		i;
 
-	if (!(num = ft_itoa(va_arg(args, int))))
+	if (!(num = ft_itoa_pr(va_arg(args, int))))
 		return (-1);
 	while (num[point] != '\0')
 		point++;

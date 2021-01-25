@@ -6,17 +6,17 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 15:26:36 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/11 22:12:39 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/25 21:30:46 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_list			*ft_listnew(void)
+t_prnt			*ft_listnew_pr(void)
 {
-	t_list	*new;
+	t_prnt	*new;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
+	if (!(new = (t_prnt *)malloc(sizeof(t_prnt))))
 		return (NULL);
 	new->flag = 0;
 	new->arg = 0;
@@ -25,7 +25,7 @@ t_list			*ft_listnew(void)
 	return (new);
 }
 
-int				ft_printf_choice(t_list **l_args, va_list args)
+int				ft_printf_choice(t_prnt **l_args, va_list args)
 {
 	if ((*l_args)->arg == 'd' || (*l_args)->arg == 'i')
 		return (ft_printf_d(l_args, args, 0));
@@ -49,7 +49,7 @@ int				ft_printf_choice(t_list **l_args, va_list args)
 	return (0);
 }
 
-int				ft_strlen(const char *s)
+int				ft_strlen_pr(const char *s)
 {
 	int n;
 
@@ -64,14 +64,14 @@ int				ft_strlen(const char *s)
 	return (n);
 }
 
-char			*ft_strjoin(char *s1, char *s2, int var)
+char			*ft_strjoin_pr(char *s1, char *s2, int var)
 {
 	char	*strjn;
 	int		i;
 	int		n;
 
 	if ((s1 == NULL && var < 3) || s2 == NULL
-	|| !(strjn = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1)))
+	|| !(strjn = (char *)malloc((ft_strlen_pr(s1) + ft_strlen_pr(s2)) + 1)))
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')

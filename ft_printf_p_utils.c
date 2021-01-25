@@ -6,13 +6,13 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 12:35:21 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 21:48:04 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/25 21:30:59 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char				ft_printf_hex_l(unsigned long hex, t_list **t_arg)
+char				ft_printf_hex_l(unsigned long hex, t_prnt **t_arg)
 {
 	if (hex < 10)
 		return ((char)hex + '0');
@@ -50,7 +50,7 @@ static char			*ft_hex_rev(char *revhex, int i)
 	return (hex);
 }
 
-static char			*ft_hex_x(unsigned long hexin, t_list **t_args)
+static char			*ft_hex_x(unsigned long hexin, t_prnt **t_args)
 {
 	char	*hex;
 	char	*revhex;
@@ -79,21 +79,21 @@ static char			*ft_hex_x(unsigned long hexin, t_list **t_args)
 	return (hex);
 }
 
-int					ft_printf_p(t_list **l_args, va_list args, int point)
+int					ft_printf_p(t_prnt **l_args, va_list args, int point)
 {
 	char	*num;
 	int		i;
 
 	if (!(num = ft_hex_x(va_arg(args, unsigned long), l_args)))
 		return (-1);
-	point = ft_strlen(num);
+	point = ft_strlen_pr(num);
 	if ((*l_args)->acacy > (-1))
 	{
 		if ((*num) == '0' && (*l_args)->acacy == 0)
 			point = 0;
 		point = acacy_d((*l_args)->acacy, point, &num);
 	}
-	num = ft_strjoin("0x", num, 1);
+	num = ft_strjoin_pr("0x", num, 1);
 	point += 2;
 	if ((*l_args)->widht > point && (*l_args)->flag != '-')
 		return (widht_d((*l_args)->widht, point, &num, l_args));
