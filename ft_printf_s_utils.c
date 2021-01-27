@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 21:35:11 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/25 21:28:49 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/26 13:24:39 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int			acacy_s(int acacy, int point, char **num)
 	return (acacy);
 }
 
-int					ft_printf_s(t_list **l_args, va_list args, int point)
+int					ft_printf_s(t_prnt **l_args, va_list args, int point)
 {
 	char	*num;
 	int		i;

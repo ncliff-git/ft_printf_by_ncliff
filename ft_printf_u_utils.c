@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 19:27:30 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 21:53:16 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/26 13:24:55 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char			*ft_utoa(unsigned value, char *str)
 	return (str);
 }
 
-int					ft_printf_u(t_list **l_args, va_list args, int point)
+int					ft_printf_u(t_prnt **l_args, va_list args, int point)
 {
 	char	*num;
 	int		i;

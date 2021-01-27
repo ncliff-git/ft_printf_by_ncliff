@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 13:28:17 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/25 21:29:54 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/27 16:08:17 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_prnt
 }					t_prnt;
 
 int					ft_printf(const char *format, ...);
-t_prnt				*ft_prntnew_pr(void);
+t_prnt				*ft_listnew_pr(void);
 int					pars_arg(char **s, va_list args);
 int					ft_printf_choice(t_prnt **l_args, va_list args);
 int					ft_printf_d(t_prnt **l_args, va_list args, int point);

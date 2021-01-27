@@ -6,7 +6,7 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 20:55:33 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 21:42:39 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/26 13:22:50 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char		*sum_in_char(int a)
 	return (s1);
 }
 
-int				ft_printf_c(t_list **l_args, va_list args, int point)
+int				ft_printf_c(t_prnt **l_args, va_list args, int point)
 {
 	char	*num;
 	int		i;

@@ -6,13 +6,13 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:36:32 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/12 21:54:18 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/26 13:24:58 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char				ft_printf_hex(unsigned int hex, t_list **t_arg)
+char				ft_printf_hex(unsigned int hex, t_prnt **t_arg)
 {
 	if (hex < 10)
 		return ((char)hex + '0');
@@ -50,7 +50,7 @@ static char			*ft_hex_rev(char *revhex, int i)
 	return (hex);
 }
 
-static char			*ft_hex_x(unsigned int hexin, t_list **t_args)
+static char			*ft_hex_x(unsigned int hexin, t_prnt **t_args)
 {
 	char	*hex;
 	char	*revhex;
@@ -79,7 +79,7 @@ static char			*ft_hex_x(unsigned int hexin, t_list **t_args)
 	return (hex);
 }
 
-int					ft_printf_h(t_list **l_args, va_list args, int point)
+int					ft_printf_h(t_prnt **l_args, va_list args, int point)
 {
 	char	*num;
 	int		i;

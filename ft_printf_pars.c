@@ -6,13 +6,13 @@
 /*   By: ncliff <ncliff@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:28:37 by ncliff            #+#    #+#             */
-/*   Updated: 2021/01/25 21:27:39 by ncliff           ###   ########.fr       */
+/*   Updated: 2021/01/27 18:53:00 by ncliff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		pars_flag(char ***s, t_list **l_args)
+static void		pars_flag(char ***s, t_prnt **l_args)
 {
 	while ((***s) == '0' || (***s) == '-')
 	{
@@ -30,7 +30,7 @@ static void		pars_flag(char ***s, t_list **l_args)
 	return ;
 }
 
-static void		pars_widht(char ***s, t_list **l_args, va_list args)
+static void		pars_widht(char ***s, t_prnt **l_args, va_list args)
 {
 	if ((***s) == '*')
 	{
@@ -51,7 +51,7 @@ static void		pars_widht(char ***s, t_list **l_args, va_list args)
 	return ;
 }
 
-static void		pars_acy(char ***s, t_list **l_args, va_list args)
+static void		pars_acy(char ***s, t_prnt **l_args, va_list args)
 {
 	if ((***s) == '.')
 	{
@@ -77,7 +77,7 @@ static void		pars_acy(char ***s, t_list **l_args, va_list args)
 
 int				pars_arg(char **s, va_list args)
 {
-	t_list	*l_args;
+	t_prnt	*l_args;
 	int		lenarg;
 
 	(*s)++;
